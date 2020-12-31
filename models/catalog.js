@@ -1,24 +1,31 @@
 const mongoose = require('mongoose');
+const config = require('./../config/config').get(process.env.NODE_ENV);
 
 const catalogSchema = mongoose.Schema({
-	id : {
-		type: Number,
-		unique: 1
+	author: {
+		type: String
 	},
-
-	userId : {
-		type: Number,
-		unique: 1
+	country: {
+		type: String
 	},
-	books : {
-		count: [],
+	imageLink: {
+		type: String
 	},
-	count: {
+	language: {
+		type: String
+	},
+	link: {
+		type: String
+	},
+	pages: {
 		type: Number
 	},
-	completed: {
-		type: Boolean
+	title: {
+		type: String
 	},
+	year: {
+		type: Date
+	}
 });
 
 module.exports = mongoose.model('Catalog', catalogSchema);

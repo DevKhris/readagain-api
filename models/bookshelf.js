@@ -11,7 +11,7 @@ const booksShelfSchema = mongoose.Schema({
 		unique: 1
 	},
 	books : {
-		count: [],
+		type: [],
 	},
 	count: {
 		type: Number

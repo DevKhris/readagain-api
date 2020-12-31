@@ -5,7 +5,7 @@ const config = {
 	},
 	default: {
 		API_SECRET: 'yetanothertestkey',
-		DATABASE: 'mongodb://localhost:27017/'
+		DATABASE: 'mongodb://localhost:27017/readagain'
 	}
 };
 
