@@ -2,23 +2,23 @@ const mongoose = require('mongoose');
 
 const booksShelfSchema = mongoose.Schema({
 	id : {
-		type: Int,
+		type: Number,
 		unique: 1
 	},
 
 	userId : {
-		type: Int,
+		type: Number,
 		unique: 1
 	},
 	books : {
 		count: [],
 	},
 	count: {
-		type: Int
+		type: Number
 	},
 	completed: {
 		type: Boolean
 	},
 });
 
-module.exports = mongoose.model('BookShelf', booksSchema);
+module.exports = mongoose.model('BookShelf', booksShelfSchema);

@@ -3,12 +3,14 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const db = require('./config/config').get(process.env.NODE_ENV);
 
 // models
 const User = require('./models/user');
-const Books = require('./models/user');
-const Catalog = require('./models/user');
+const Books = require('./models/books');
+const BookShelf = require('./models/bookshelf');
+const Catalog = require('./models/catalog');
 
 // Init
 const app = express();
@@ -17,7 +19,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
-
+app.use(cors());
 // Enviroment Config
 
 // Database Config
@@ -157,13 +159,14 @@ app.post('/api/login', (req, res) => {
 				user.genToken((err, user) => {
 					if(err)
 					{
-						return res.status(400).send(err);
+						return res.send(err);
 					}
 					// sets token to cookie and sends it like json
 					res.cookie('auth', user.token).json({
 						isAuth: true,
 						id: user._id,
-						email: user.email
+						username: user.username,
+						token: user.token
 					});
 				});
 			});

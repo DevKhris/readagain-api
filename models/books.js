@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const booksSchema = mongoose.Schema({
 	id : {
-		type: Int,
+		type: Number,
 		unique: 1
 	},
 
@@ -18,7 +18,7 @@ const booksSchema = mongoose.Schema({
 		type: String
 	},
 	year: {
-		type: Int,
+		type: Date,
 	},
 	status: {
 		type: Boolean
