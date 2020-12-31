@@ -59,7 +59,7 @@ app.get('/api/bookshelf/get/:user', (req, res) => {
 
 app.get('/api/catalog', (req, res) => {
 	 Catalog.find({}, function(err, catalog) {
-		res.send(catalog);	
+		res.status(200).send(catalog);	
 	});
 });
 
