@@ -7,10 +7,10 @@ const cors = require("cors");
 const db = require("./config/config").get(process.env.NODE_ENV);
 
 // models
-const User = require("./api/src/models/user");
-const Book = require("./api/src/models/book");
-const BookShelf = require("./api/src/models/bookshelf");
-const Catalog = require("./api/src/models/catalog");
+const User = require("./src/api/models/user");
+const Book = require("./src/api/models/book");
+const BookShelf = require("./src/api/models/bookshelf");
+const Catalog = require("./src/api/models/catalog");
 
 // Init
 const app = express();
