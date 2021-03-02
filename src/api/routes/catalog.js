@@ -1,14 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/api/bookshelf/get/:user", (req, res) => {
-  res.send("Bookshelf Example");
-});
+const { auth } = require("./../middlewares/auth");
 
-router.get("/api/catalog", (req, res) => {
-  Catalog.find({}, function (err, catalog) {
-    res.status(200).send(catalog);
-  });
-});
+const catalogController = require("../controllers/catalogController");
+
+router.get("/catalog", auth, catalogController.index);
 
 module.exports = router;

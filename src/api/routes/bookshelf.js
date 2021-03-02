@@ -1,15 +1,24 @@
-app.get('/api/bookshelf/get/:user', (req, res) => {
-	res.send('Bookshelf Example');
+const express = require("express");
+const router = express.Router();
+
+router.get("/bookshelf/get/:user", (req, res) => {
+  res.send("Bookshelf Example");
 });
 
-app.post('/api/bookshelf/:id/add', (req, res) => {
-	res.send('Book Added');
+router.get("/api/bookshelf/get/:user", (req, res) => {
+  res.send("Bookshelf Example");
 });
 
-app.patch('/api/bookshelf/:id/update', (req, res) => {
-	res.send('Book Updated');
+router.post("/api/bookshelf/:id/add", (req, res) => {
+  res.send("Book Added");
 });
 
-app.delete('/api/bookshelf/:id/delete', (req, res) => {
-	res.send('Book Deleted');
+router.patch("/api/bookshelf/:id/update", (req, res) => {
+  res.send("Book Updated");
 });
+
+router.delete("/api/bookshelf/:id/delete", (req, res) => {
+  res.send("Book Deleted");
+});
+
+module, (exports = router);

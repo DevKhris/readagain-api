@@ -7,10 +7,9 @@ const cors = require("cors");
 const db = require("./config/config").get(process.env.NODE_ENV);
 
 // models
-const User = require("./src/api/models/user");
+
 const Book = require("./src/api/models/book");
 const BookShelf = require("./src/api/models/bookshelf");
-const Catalog = require("./src/api/models/catalog");
 
 // Init
 const app = express();
@@ -36,7 +35,7 @@ mongoose.connect(
     useFindAndModify: false,
     useCreateIndex: true,
   },
-  function (err) {
+  function (err, conn) {
     if (err) console.log(`[Error]: ${err}`);
     console.log("[+] Database Connected");
   }
@@ -50,12 +49,14 @@ const port = process.env.API_PORT;
 
 // middleware for logging petitions
 app.use((req, res, next) => {
-  console.log("[Log] " + req.method + "" + req.path + " - " + req.ip);
+  console.log("[Log] " + req.method + " " + req.path + " from: " + req.ip);
   next();
 });
 
-//// Auth
-const { auth } = require("./src/apì/middlewares/auth");
+// Require routes
+const authRoutes = require("./src/api/routes/auth.js");
+const catalogRoutes = require("./src/api/routes/catalog.js");
+// const bookshelfRoutes = require('./src/api/routes/bookshelf.js');
 
 // Routes
 
@@ -64,16 +65,9 @@ app.get("/", (req, res) => {
   res.status(200).send("Welcome to ReadAgain API, please login");
 });
 
-// Auth routes
-const authRoutes = require("./src/api/routes/auth.js");
+app.use("/api/auth", authRoutes);
+
 app.use("/api/", catalogRoutes);
-
-// Catalog routes
-const catalogRoutes = require("./src/api/routes/catalog.js");
-app.use("/catalog", catalogRoutes);
-
-// Bookshelf routes
-// const bookshelfRoutes = require('./src/api/routes/bookshelf.js');
 
 // Server
 app.listen(port);
