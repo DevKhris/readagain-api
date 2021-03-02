@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const booksSchema = mongoose.Schema({
+const bookSchema = mongoose.Schema({
 	id : {
 		type: Number,
 		unique: 1
@@ -25,4 +25,4 @@ const booksSchema = mongoose.Schema({
 	}
 });
 
-module.exports = mongoose.model('Books', booksSchema);
+module.exports = mongoose.model('Book', booksSchema);

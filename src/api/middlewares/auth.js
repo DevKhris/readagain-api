@@ -19,7 +19,7 @@ let auth = (req, res, next) => {
         req.token = token;
 
         // save user to request
-        req.user =user;
+        req.user = user;
 
         // next
         next();

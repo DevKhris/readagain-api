@@ -24,7 +24,7 @@ const catalogSchema = mongoose.Schema({
 		type: String
 	},
 	year: {
-		type: Date
+		type: String
 	}
 });
 

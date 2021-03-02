@@ -1,10 +1,9 @@
 {
   "name": "readagain-api",
   "version": "1.0.0",
-  "description": "Reading List REST API for ReadAgain App",
+  "description": "Books and Read List REST API for ReadAgain App",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
