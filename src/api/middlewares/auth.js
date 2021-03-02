@@ -6,7 +6,7 @@ const auth = (req, res, next) => {
   let token = req.cookies.auth;
 
   // find user by provided token
-  User.findByToken(token, (err, user) => {
+  User.find(token, (err, user) => {
     if (err) return res.status(400).send(err);
 
     // if not user is found, return error in json format
