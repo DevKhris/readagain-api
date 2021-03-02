@@ -2,7 +2,7 @@
   "name": "readagain-api",
   "version": "1.0.0",
   "description": "Books and Read List REST API for ReadAgain App",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
