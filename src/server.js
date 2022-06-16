@@ -1,31 +1,16 @@
 const cookieParser = require("cookie-parser");
 const express = require("express");
-const http = require('http')
-
+const http = require("http");
+const { connectToDatabase } = require("./services/database");
 const app = express();
 
-http.createServer(  app)
+http.createServer(app);
 
-app.use(express.urlencoded());
-app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cookieParser());
 
-// Database Config
-// mongoose.Promise = global.Promise;
-// mongoose.connect(
-//   db.DATABASE,
-//   {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useFindAndModify: false,
-//     useCreateIndex: true,
-//   },
-//   function (err, conn) {
-//     if (err) console.log(`[Error]: ${err}`);
-//     console.log("[+] Database Connected");
-//   }
-// );
-
+connectToDatabase();
 
 // middleware for logging petitions
 app.use((req, res, next) => {
@@ -38,5 +23,5 @@ app.get("/", (req, res) => {
   res.status(200).send("Welcome to ReadAgain API, please login");
 });
 
+module.exports = app;
 
-module.exports = app

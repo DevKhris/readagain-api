@@ -21,4 +21,4 @@ router.delete("/api/bookshelf/:id/delete", (req, res) => {
   res.send("Book Deleted");
 });
 
-module, (exports = router);
+module.exports = router

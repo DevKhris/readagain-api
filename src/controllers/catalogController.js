@@ -1,4 +1,4 @@
-const Catalog = require("./../models/catalog");
+const Catalog = require("../models/catalog");
 
 exports.index = function (req, res) {
   Catalog.find({}, function (err, catalog) {
