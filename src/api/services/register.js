@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const salt = 16;
 
 // User model
-const User = require("./../../models/user");
+const User = require("../models/user");
 
 // require config
 require("dotenv").config();
